@@ -1,0 +1,32 @@
+In this scenario, we'll consider a simple OMNeT++ model of two nodes (Node A and Node B) communicating with each other over a network.
+The goal is to use a basic reinforcement learning algorithm to find the optimal transmission power for Node A to minimize packet loss 
+while conserving energy.
+
+For simplicity, we'll use the Q-learning algorithm, which is a popular model-free RL algorithm for solving MDPs. The states will represent 
+different transmission power levels, and actions will be to increase, decrease, or maintain the current power level. The rewards will be 
+based on successful packet transmission and energy consumption.
+
+The RL-Algorithm in tailored to the NodeA.cc, and hence the training of the RL-algorithm works at the same time while simulation of the OMNet++
+is happeneing. This is not computationally sound method, hence RL_OMNet2 is proposed, which decouples the training of the RL algorithm from the
+simulation.
+
+The following python code can be used to visualize the learning rate of the simulation.
+
+After running the simulation, you should have a total_rewards.txt file containing the total rewards data. 
+You can then use Python with Matplotlib to visualize the learning curve:
+
+import matplotlib.pyplot as plt
+
+# Read the total rewards data from the file
+with open('total_rewards.txt', 'r') as file:
+    total_rewards = [float(line.strip()) for line in file]
+
+# Calculate the cumulative reward
+cumulative_rewards = [sum(total_rewards[:i+1]) for i in range(len(total_rewards))]
+
+# Plot the learning curve
+plt.plot(cumulative_rewards)
+plt.xlabel('Time Step')
+plt.ylabel('Cumulative Reward')
+plt.title('Learning Curve')
+plt.show()

@@ -1,0 +1,27 @@
+# OMNeT++ build output (created by the IDE / `make`)
+out/
+*.o
+*.d
+.last-copts
+*.exe
+*.so
+*.dll
+*.dylib
+*.lib
+*.a
+
+# Generated simulation / training output
+total_rewards.txt
+Q_table.txt
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Editor / OS files
+.DS_Store
+.vscode/
+.idea/
+*~
